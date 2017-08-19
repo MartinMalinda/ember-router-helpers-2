@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('asia');
+  this.route('europe');
+  this.route('america');
 });
 
 export default Router;

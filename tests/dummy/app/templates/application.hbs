@@ -1,3 +1,17 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Ember-Router-Helpers</h2>
 
-{{outlet}}
+{{#with (url-for "asia") as |url|}}
+  <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Asia</a>
+{{/with}}
+
+{{#with (url-for "europe" (query-params firstTime=true)) as |url|}}
+  <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Europe</a>
+{{/with}}
+
+{{#with (url-for "america") as |url|}}
+  <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>America</a>
+{{/with}}
+
+<div>
+  {{outlet}}
+</div>
