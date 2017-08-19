@@ -2,7 +2,7 @@
 
 This addon provides a set of helpers that internally use the new new public [Router service](https://github.com/emberjs/rfcs/blob/84f5239100d2c6d20cb74382ba7eedfc5fa3b8b4/text/0000-router-service.md), either directly or via [polyfill](https://github.com/rwjblue/ember-router-service-polyfill).
 
-Check out [ember-href-to](https://github.com/intercom/ember-href-to), if you need alternative to link-to, that is actually battle-tested.
+Check out [ember-href-to](https://github.com/intercom/ember-href-to), if you need an alternative to link-to, that is actually battle-tested.
 
 Simplest usage
 
