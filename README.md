@@ -1,4 +1,4 @@
-# Ember-Route-Helpers
+# Ember-Router-Helpers (alpha)
 
 This addon provides a set of helpers that internally use the new new public Router service (https://github.com/emberjs/rfcs/blob/master/text/0095-router-service.md), either directly or via polyfill (https://github.com/rwjblue/ember-router-service-polyfill).
 
@@ -8,7 +8,7 @@ https://github.com/intercom/ember-href-to
 Simplest usage
 
 ```hbs
-  <a href={{url-for "world"}} onclick={{transition-to}}>World</a>
+<a href={{url-for "world"}} onclick={{transition-to}}>World</a>
 ```
 
 With is-active and with
@@ -17,7 +17,9 @@ With is-active and with
 {{#with (url-for "world") as |url|}}
   <a
     class={{if (is-active url) "active"}}
-    href={{url}} onclick={{transition-to}}>World</a>
+    href={{url}} onclick={{transition-to}}>
+    World
+  </a>
 {{/with}}
 ```
 
@@ -25,7 +27,9 @@ Explicit usage (with replace)
 ```hbs
 <a
   class={{if (is-active "world" (query-params nightMode=true)) "active"}}
-  onclick={{transition-to "world" (query-params nightMode=true) replace=true}}>World</a>
+  onclick={{transition-to "world" (query-params nightMode=true) replace=true}}>
+  World
+</a>
 ```
 
 <s>Explicit usage + with helper</s> (TODO, does not work so far)
@@ -34,7 +38,9 @@ Explicit usage (with replace)
   <a
     href={{url-for params}}
     class={{if (is-active params) "active"}}
-    onclick={{transition-to params}}>World</a>
+    onclick={{transition-to params}}>
+    World
+  </a>
 {{/with}}
 ```
 
