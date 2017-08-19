@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import { removeRoot } from './transition';
+import { restructureQP } from './url-for';
 
 const { inject, observer } = Ember;
 
@@ -21,9 +22,9 @@ export default Ember.Helper.extend({
   },
 
   compute(params) {
-
     if(!resemblesURL(params[0])) {
-      return this.get('router').isActive(...params);
+      const routeParams = restructureQP(params);
+      return this.get('router').isActive(...routeParams);
     } else {
       const cleanURL = this.cleanURL(params[0]);
       return this.get('router.currentURL').indexOf(cleanURL) === 0;

@@ -1,4 +1,6 @@
 import Ember from 'ember';
+import { restructureQP } from './url-for';
+
 
 const { inject } = Ember;
 
@@ -29,7 +31,7 @@ export default Ember.Helper.extend({
 
     const transitionFn = replace ? this.get('router').replaceWith.bind(this.get('router')) :
                                    this.get('router').transitionTo.bind(this.get('router'));
-                                   
+
     return this._makeAction(event => {
       event.preventDefault();
 
@@ -40,7 +42,8 @@ export default Ember.Helper.extend({
           transitionFn(url);
         }
       } else {
-        return this._makeAction(() => transitionFn(...params));
+        const routeParams = restructureQP(params);
+        transitionFn(...routeParams);
       }
     });
   }

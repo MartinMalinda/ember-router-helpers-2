@@ -54,5 +54,12 @@
 </div>
 
 <div>
+    <a
+      class={{if (is-active "europe" "Paris" (query-params firstTime=true)) "active"}}
+      data-test-link-paris-explicit
+      onclick={{transition "europe" "Paris" (query-params firstTime=true)}}>Paris</a>
+</div>
+
+<div>
   {{outlet}}
 </div>

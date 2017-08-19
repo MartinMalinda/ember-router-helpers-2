@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 moduleForAcceptance('Acceptance | transition');
 
-test('it works', async function(assert) {
+test('direct URL usage', async function(assert) {
   await visit('/');
 
   assert.equal(currentURL(), '/');
@@ -99,4 +99,19 @@ test('it works', async function(assert) {
   assert.ok($america.hasClass('active'), 'america link is active (still)');
   assert.equal(currentURL(), '/america/south');
   assert.ok($('h2').text().includes('America'), 'America is in title');
+});
+
+test('explicit usage (passing params to is-active and transition)', async function(assert) {
+  await visit('/');
+
+  assert.equal($('.active').length, 0, 'there are no active links');
+
+  const $parisExplicit = $('[data-test-link-paris-explicit]');
+
+  await click($parisExplicit);
+
+  assert.ok($parisExplicit.hasClass('active'), 'parisExplicit link is active');
+  assert.equal(currentURL(), '/europe/Paris');
+  assert.ok($('h2').text().includes('Paris'), 'Paris is in title');
+  assert.equal($('.active').length, 1, 'there is just one active link');
 });
