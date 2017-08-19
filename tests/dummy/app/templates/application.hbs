@@ -1,30 +1,55 @@
 <h2 id="title">Ember-Router-Helpers</h2>
 <div>
   {{#with (url-for "asia") as |url|}}
-    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Asia</a>
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-asia
+      href={{url}} onclick={{transition}}>Asia</a>
   {{/with}}
 </div>
 
 <div>
   {{#with (url-for "europe" "Rome" (query-params firstTime=true)) as |url|}}
-    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Rome</a>
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-rome-first-time
+      href={{url}} onclick={{transition}}>Rome</a>
   {{/with}}
 
   {{#with (url-for "europe" "Helsinki" (query-params firstTime=false)) as |url|}}
-    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Helsinki</a>
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-helsinki
+      href={{url}} onclick={{transition}}>Helsinki</a>
+  {{/with}}
+
+  {{#with (url-for "europe" "Helsinki" (query-params firstTime=true)) as |url|}}
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-helsinki-first-time
+      href={{url}} onclick={{transition}}>Helsinki (F)</a>
   {{/with}}
 
   {{#with (url-for "europe" "Prague" (query-params firstTime=true)) as |url|}}
-    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Prague</a>
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-prague-first-time
+      href={{url}} onclick={{transition}}>Prague</a>
   {{/with}}
 </div>
 <div>
   {{#with (url-for "america") as |url|}}
-    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>America</a>
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-america
+      href={{url}} onclick={{transition}}>America</a>
   {{/with}}
   |
   {{#with (url-for "america.south") as |url|}}
-    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>South America</a>
+    <a
+      class={{if (is-active url) "active"}}
+      data-test-link-south-america
+      href={{url}} onclick={{transition}}>South America</a>
   {{/with}}
 </div>
 

@@ -20,7 +20,7 @@ export default Ember.Helper.extend({
     return urlWithoutQP;
   },
 
-  compute(params, hash) {
+  compute(params) {
 
     if(!resemblesURL(params[0])) {
       return this.get('router').isActive(...params);
