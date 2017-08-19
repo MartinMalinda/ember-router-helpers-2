@@ -12,6 +12,7 @@ export default Ember.Helper.extend({
   router: inject.service(),
 
   _makeAction(cb) {
+    // Stolen from https://github.com/DockYard/ember-route-action-helper/blob/master/addon/-private/internals.js
     let ClosureActionModule;
 
     if ('ember-htmlbars/keywords/closure-action' in Ember.__loader.registry) {

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { removeRoot } from './transition';
+import { removeRoot } from './transition-to';
 import { restructureQP } from './url-for';
 
 const { inject, observer } = Ember;

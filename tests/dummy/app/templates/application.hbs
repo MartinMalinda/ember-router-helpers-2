@@ -4,7 +4,7 @@
     <a
       class={{if (is-active url) "active"}}
       data-test-link-asia
-      href={{url}} onclick={{transition}}>Asia</a>
+      href={{url}} onclick={{transition-to}}>Asia</a>
   {{/with}}
 </div>
 
@@ -13,28 +13,28 @@
     <a
       class={{if (is-active url) "active"}}
       data-test-link-rome-first-time
-      href={{url}} onclick={{transition}}>Rome</a>
+      href={{url}} onclick={{transition-to}}>Rome</a>
   {{/with}}
 
   {{#with (url-for "europe" "Helsinki" (query-params firstTime=false)) as |url|}}
     <a
       class={{if (is-active url) "active"}}
       data-test-link-helsinki
-      href={{url}} onclick={{transition}}>Helsinki</a>
+      href={{url}} onclick={{transition-to}}>Helsinki</a>
   {{/with}}
 
   {{#with (url-for "europe" "Helsinki" (query-params firstTime=true)) as |url|}}
     <a
       class={{if (is-active url) "active"}}
       data-test-link-helsinki-first-time
-      href={{url}} onclick={{transition}}>Helsinki (F)</a>
+      href={{url}} onclick={{transition-to}}>Helsinki (F)</a>
   {{/with}}
 
   {{#with (url-for "europe" "Prague" (query-params firstTime=true)) as |url|}}
     <a
       class={{if (is-active url) "active"}}
       data-test-link-prague-first-time
-      href={{url}} onclick={{transition}}>Prague</a>
+      href={{url}} onclick={{transition-to}}>Prague</a>
   {{/with}}
 </div>
 <div>
@@ -42,14 +42,14 @@
     <a
       class={{if (is-active url) "active"}}
       data-test-link-america
-      href={{url}} onclick={{transition}}>America</a>
+      href={{url}} onclick={{transition-to}}>America</a>
   {{/with}}
   |
   {{#with (url-for "america.south") as |url|}}
     <a
       class={{if (is-active url) "active"}}
       data-test-link-south-america
-      href={{url}} onclick={{transition}}>South America</a>
+      href={{url}} onclick={{transition-to}}>South America</a>
   {{/with}}
 </div>
 
@@ -57,7 +57,15 @@
     <a
       class={{if (is-active "europe" "Paris" (query-params firstTime=true)) "active"}}
       data-test-link-paris-explicit
-      onclick={{transition "europe" "Paris" (query-params firstTime=true)}}>Paris</a>
+      onclick={{transition-to "europe" "Paris" (query-params firstTime=true)}}>Paris (F)</a>
+      
+    <a
+      class={{if (is-active "europe" "Paris" (query-params firstTime=false)) "active"}}
+      data-test-link-paris-explicit
+      onclick={{transition-to "europe" "Paris" (query-params firstTime=false)}}>Paris</a>
+</div>
+
+<div>
 </div>
 
 <div>

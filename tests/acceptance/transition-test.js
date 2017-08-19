@@ -111,7 +111,8 @@ test('explicit usage (passing params to is-active and transition)', async functi
   await click($parisExplicit);
 
   assert.ok($parisExplicit.hasClass('active'), 'parisExplicit link is active');
-  assert.equal(currentURL(), '/europe/Paris');
+  assert.equal(currentURL(), '/europe/Paris?firstTime=true');
   assert.ok($('h2').text().includes('Paris'), 'Paris is in title');
+  // explicit usage allows to check for queryParams correctly
   assert.equal($('.active').length, 1, 'there is just one active link');
 });
