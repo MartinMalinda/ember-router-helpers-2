@@ -34,9 +34,15 @@ export default Ember.Helper.extend({
                                    this.get('router').transitionTo.bind(this.get('router'));
 
     return this._makeAction(event => {
-      event.preventDefault();
+
+      if(event) {
+        event.preventDefault();
+      }
 
       if (!params.length) {
+
+        Ember.assert('Empty {{transition-to}} usage requires to be passed to event handling attribute (onclick, onmouseover...)', event);
+
         const target = event.target;
         if(target) {
           const url = removeRoot(target.getAttribute('href'), this.get('router.rootURL'));

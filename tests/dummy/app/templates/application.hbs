@@ -57,12 +57,12 @@
     <a
       class={{if (is-active "europe" "Paris" (query-params firstTime=true)) "active"}}
       data-test-link-paris-explicit
-      onclick={{transition-to "europe" "Paris" (query-params firstTime=true)}}>Paris (F)</a>
-      
+      {{action (transition-to "europe" "Paris" (query-params firstTime=true))}}>Paris (F)</a>
+
     <a
       class={{if (is-active "europe" "Paris" (query-params firstTime=false)) "active"}}
       data-test-link-paris-explicit
-      onclick={{transition-to "europe" "Paris" (query-params firstTime=false)}}>Paris</a>
+      {{action (transition-to "europe" "Paris" (query-params firstTime=false))}}>Paris</a>
 </div>
 
 <div>
