@@ -1,16 +1,32 @@
 <h2 id="title">Ember-Router-Helpers</h2>
+<div>
+  {{#with (url-for "asia") as |url|}}
+    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Asia</a>
+  {{/with}}
+</div>
 
-{{#with (url-for "asia") as |url|}}
-  <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Asia</a>
-{{/with}}
+<div>
+  {{#with (url-for "europe" "Rome" (query-params firstTime=true)) as |url|}}
+    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Rome</a>
+  {{/with}}
 
-{{#with (url-for "europe" (query-params firstTime=true)) as |url|}}
-  <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Europe</a>
-{{/with}}
+  {{#with (url-for "europe" "Helsinki" (query-params firstTime=false)) as |url|}}
+    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Helsinki</a>
+  {{/with}}
 
-{{#with (url-for "america") as |url|}}
-  <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>America</a>
-{{/with}}
+  {{#with (url-for "europe" "Prague" (query-params firstTime=true)) as |url|}}
+    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>Prague</a>
+  {{/with}}
+</div>
+<div>
+  {{#with (url-for "america") as |url|}}
+    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>America</a>
+  {{/with}}
+  |
+  {{#with (url-for "america.south") as |url|}}
+    <a class={{if (is-active url) "active"}} href={{url}} onclick={{transition}}>South America</a>
+  {{/with}}
+</div>
 
 <div>
   {{outlet}}

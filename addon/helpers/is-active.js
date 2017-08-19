@@ -14,14 +14,19 @@ export default Ember.Helper.extend({
     this.recompute();
   }),
 
+  cleanURL(url) {
+    const urlWithoutRoot = removeRoot(url, this.get('router.rootURL'));
+    const urlWithoutQP = urlWithoutRoot.split('?')[0];
+    return urlWithoutQP;
+  },
+
   compute(params, hash) {
 
     if(!resemblesURL(params[0])) {
       return this.get('router').isActive(...params);
     } else {
-      const [ url ] = params;
-      const urlWithoutRoot = removeRoot(url, this.get('router.rootURL'));
-      return urlWithoutRoot.indexOf(this.get('router.currentURL')) === 0;
+      const cleanURL = this.cleanURL(params[0]);
+      return this.get('router.currentURL').indexOf(cleanURL) === 0;
     }
   }
 });
