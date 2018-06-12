@@ -18,6 +18,11 @@ export default Ember.Helper.extend({
   router: inject.service(),
 
   compute(params) {
+    if (!this.get('router.currentRouteName')) {
+      // there is no routing state, this is probably an integration test
+      return '';
+    }
+
     const routeParams = restructureQP(params);
     return this.get('router').urlFor(...routeParams);
   }
